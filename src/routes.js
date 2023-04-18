@@ -1,4 +1,4 @@
-import UsuarioProvider from "common/context/Usuario";
+import { UsuarioProvider }from "common/context/Usuario";
 import Carrinho from "pages/Carrinho";
 import Feira from "pages/Feira";
 import Login from "pages/Login";
