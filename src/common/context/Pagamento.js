@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 
 export const PagamentoContext = createContext();
@@ -33,5 +33,21 @@ export const PagamentoProvider = ({ children }) => {
             {children}
         </PagamentoContext.Provider>
      );
+}
+
+export const usePagamentoContext = () => {
+    const { tiposPagamento, formaPagamento, setFormaPagamento } = useContext(PagamentoContext);
+
+    function mudarFormaPagamento(id) {
+        const pagamentoAtual = tiposPagamento.find(pagamento => pagamento.id === id);
+
+        setFormaPagamento(pagamentoAtual);
+    }
+
+    return {
+        tiposPagamento,
+        formaPagamento,
+        mudarFormaPagamento
+    }
 }
  
